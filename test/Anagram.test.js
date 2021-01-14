@@ -19,3 +19,8 @@ test('letters profile for kin ship is ()', () => {
 test('finds that kinship and pinkish are anagrams', () => {
     expect(isAnagram('kinship','pinkish')).toBe(true); 
 });
+
+// Next, how to introduce a third word. Data structure?
+// Can LetterProfiles be used as property names in an object?
+
+// test('')
