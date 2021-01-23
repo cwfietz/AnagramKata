@@ -8,7 +8,9 @@ const isAnagram = (firstWord, secondWord) => {
     if (firstWord.length !== secondWord.length) {
         return false
     }
-    return firstWord === secondWord;
+    const firstWordLetterProfile = getLettersProfile(firstWord);
+    const secondWordLetterProfile = getLettersProfile(secondWord);
+    return sameLetterProfiles(firstWordLetterProfile, secondWordLetterProfile);
 }
 
 const getEmptyLetterProfile = () => {
@@ -28,6 +30,17 @@ const getLettersProfile = (word) => {
         }
     }
     return letterProfile;
+}
+
+function sameLetterProfiles(firstLetterProfile, secondLetterProfile) {
+    if (firstLetterProfile === secondLetterProfile) return true;
+    if (firstLetterProfile == null || secondLetterProfile == null) return false;
+    if (firstLetterProfile.length !== secondLetterProfile.length) return false;
+  
+    for (var index = 0; index < firstLetterProfile.length; ++index) {
+      if (firstLetterProfile[index] !== secondLetterProfile[index]) return false;
+    }
+    return true;
 }
 
 export { isAnagram, getEmptyLetterProfile, getLettersProfile };

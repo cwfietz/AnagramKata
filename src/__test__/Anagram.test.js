@@ -36,6 +36,10 @@ test('finds that kinship and kinshi, words of different length, are not anagrams
     expect(isAnagram('kinship','kinshi')).toBe(false); 
 });
 
+test('letters profile for pinkish is same as for kinship', () => {
+    expect(getLettersProfile('pinkish')).toEqual([0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]);
+});
+
 test('finds that kinship and pinkish are anagrams', () => {
     expect(isAnagram('kinship','pinkish')).toBe(true); 
 });
