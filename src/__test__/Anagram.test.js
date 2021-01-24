@@ -2,7 +2,9 @@ import {
     isAnagram,
     getEmptyLetterProfile,
     getLettersProfile,
-    addWord
+    addWord,
+    buildStoreOfLetterProfiles,
+    addToStoreOfLetterProfiles
 } from '../../src/Anagram.js';
 
 test('finds that king and kins are not anagrams', () => {
@@ -49,14 +51,21 @@ test('finds that kinship and pinkish are anagrams', () => {
     expect(isAnagram('kinship','pinkish')).toBe(true); 
 });
 
-// Next, how to introduce a third word. Data structure?
-// Can LetterProfiles be used as property names in an object?
-
 test('attemp to make a letterProfile a field in an object', () => {
     expect(addWord('kinship')).toEqual({"0,0,0,0,0,0,0,1,2,0,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0": "kinship"});
 });
 
-test('attemp to determine if there is a particular letterProfile as a field in an object', () => {
-    addWord('kinship')
-    expect(addWord('kinship')).toEqual({"0,0,0,0,0,0,0,1,2,0,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0": "kinship"});
+test('attemp to add a letterProfile and a word in an array in an object', () => {
+    expect(buildStoreOfLetterProfiles()).toEqual({"0,0,0,0,0,0,0,1,2,0,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0": ["kinship"]});
 });
+
+test('attemp to add multiple words to an array in an object', () => {
+    expect(addToStoreOfLetterProfiles()).toEqual({"0,0,0,0,0,0,0,1,2,0,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0": ["kinship","pinkish"]});
+});
+
+// remove unneeded funtions
+// determine logic to query and object for a specific letterProfile
+test('', () => {
+    expect(false).toEqual(true);
+});
+

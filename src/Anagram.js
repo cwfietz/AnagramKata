@@ -50,9 +50,30 @@ function addWord(aWord) {
     return storeOfLetterProfiles;
 }
 
+function buildStoreOfLetterProfiles() {
+    let storeOfLetterProfiles = {};
+    const aLetterProfile = getLettersProfile('kinship');
+    storeOfLetterProfiles[aLetterProfile] = ['kinship'];
+    return storeOfLetterProfiles;
+}
+
+function addToStoreOfLetterProfiles() {
+    let storeOfLetterProfiles = {};
+    let aLetterProfile = getLettersProfile('kinship');
+    storeOfLetterProfiles[aLetterProfile] = ['kinship'];
+
+    let bLetterProfile = getLettersProfile('pinkish');
+    if (sameLetterProfiles(aLetterProfile, bLetterProfile)) {
+        storeOfLetterProfiles[aLetterProfile].push('pinkish');
+    }
+    return storeOfLetterProfiles;
+}
+
 export {
     isAnagram,
     getEmptyLetterProfile,
     getLettersProfile,
-    addWord
+    addWord,
+    buildStoreOfLetterProfiles,
+    addToStoreOfLetterProfiles
 };
