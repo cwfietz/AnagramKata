@@ -1,4 +1,9 @@
-import { isAnagram, getEmptyLetterProfile, getLettersProfile } from '../../src/Anagram.js';
+import {
+    isAnagram,
+    getEmptyLetterProfile,
+    getLettersProfile,
+    addWord
+} from '../../src/Anagram.js';
 
 test('finds that king and kins are not anagrams', () => {
     expect(isAnagram('king','kins')).toBe(false); 
@@ -42,4 +47,16 @@ test('letters profile for pinkish is same as for kinship', () => {
 
 test('finds that kinship and pinkish are anagrams', () => {
     expect(isAnagram('kinship','pinkish')).toBe(true); 
+});
+
+// Next, how to introduce a third word. Data structure?
+// Can LetterProfiles be used as property names in an object?
+
+test('attemp to make a letterProfile a field in an object', () => {
+    expect(addWord('kinship')).toEqual({"0,0,0,0,0,0,0,1,2,0,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0": "kinship"});
+});
+
+test('attemp to determine if there is a particular letterProfile as a field in an object', () => {
+    addWord('kinship')
+    expect(addWord('kinship')).toEqual({"0,0,0,0,0,0,0,1,2,0,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0": "kinship"});
 });

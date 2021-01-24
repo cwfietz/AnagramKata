@@ -43,4 +43,16 @@ function sameLetterProfiles(firstLetterProfile, secondLetterProfile) {
     return true;
 }
 
-export { isAnagram, getEmptyLetterProfile, getLettersProfile };
+function addWord(aWord) {
+    let storeOfLetterProfiles = {};
+    const aLetterProfile = getLettersProfile(aWord);
+    storeOfLetterProfiles[aLetterProfile] = aWord;
+    return storeOfLetterProfiles;
+}
+
+export {
+    isAnagram,
+    getEmptyLetterProfile,
+    getLettersProfile,
+    addWord
+};
